@@ -1,2 +1,1 @@
-# Hadoop_HA
-Highly Available Hadoop Cluster with  Docker
+# Highly Available Hadoop Cluster with Docker
