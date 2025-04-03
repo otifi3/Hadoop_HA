@@ -1,0 +1,73 @@
+services:
+  m1:
+    build: .
+    container_name: m1
+    hostname: m1
+    networks:
+      - hnet
+    ports:
+      - "9870:9870"
+      - "8088:8088"
+    volumes:
+      - nn1:/usr/local/hadoop/hdfs/namenode
+      - j1:/usr/local/hadoop/journal
+      - zk1:/usr/local/zookeeper
+              
+
+  m2:
+    build: .
+    container_name: m2
+    hostname: m2
+    networks:
+      - hnet
+    ports:
+      - "9871:9870"
+      - "8089:8088"
+    volumes:
+      - nn2:/usr/local/hadoop/hdfs/namenode
+      - j2:/usr/local/hadoop/journal
+      - zk2:/usr/local/zookeeper
+         
+
+  m3:
+    build: .
+    container_name: m3
+    hostname: m3
+    networks:
+      - hnet
+    ports:
+      - "9872:9870"
+      - "8090:8088"
+    volumes:
+      - nn3:/usr/local/hadoop/hdfs/namenode
+      - j3:/usr/local/hadoop/journal
+      - zk3:/usr/local/zookeeper
+        
+  s1:
+    build: .
+    container_name: s1
+    hostname: s1
+    networks:
+      - hnet
+    volumes:
+      - dn1:/usr/local/hadoop/hdfs/datanode
+    depends_on:
+      - m1
+      - m2
+      - m3
+        
+networks:
+  hnet:
+    driver: bridge
+
+volumes:
+  nn1:
+  j1:
+  zk1:
+  nn2:
+  j2:
+  zk2:
+  nn3:
+  j3:
+  zk3:
+  dn1:

@@ -1,0 +1,85 @@
+<configuration>
+    <property>
+        <name>dfs.replication</name>
+        <value>1</value>
+    </property>
+    
+    <property>
+        <name>dfs.nameservices</name>
+        <value>hadoop-cluster</value>
+    </property>
+
+    <property>
+        <name>dfs.ha.namenodes.hadoop-cluster</name>
+        <value>nn1,nn2,nn3</value>
+    </property>
+
+    <property>
+        <name>dfs.namenode.rpc-address.hadoop-cluster.nn1</name>
+        <value>m1:8020</value>
+    </property>
+    <property>
+        <name>dfs.namenode.rpc-address.hadoop-cluster.nn2</name>
+        <value>m2:8020</value>
+    </property>
+    <property>
+        <name>dfs.namenode.rpc-address.hadoop-cluster.nn3</name>
+        <value>m3:8020</value>
+    </property>
+
+    <property>
+        <name>dfs.namenode.shared.edits.dir</name>
+        <value>qjournal://m1:8485;m2:8485;m3:8485/hadoop-cluster</value>
+    </property>
+
+    <property>
+        <name>dfs.journalnode.edits.dir</name>
+        <value>/usr/local/hadoop/journal</value>
+    </property>
+
+    <property>
+        <name>dfs.client.failover.proxy.provider.hadoop-cluster</name>
+        <value>org.apache.hadoop.hdfs.server.namenode.ha.ConfiguredFailoverProxyProvider</value>
+    </property>
+
+    <property>
+        <name>dfs.ha.automatic-failover.enabled</name>
+        <value>true</value>
+    </property>
+
+    <property>
+        <name>dfs.namenode.name.dir</name>
+        <value>file:///usr/local/hadoop/hdfs/namenode</value>
+    </property>
+
+    <property>
+        <name>dfs.datanode.data.dir</name>
+        <value>file:///usr/local/hadoop/hdfs/datanode</value>
+    </property>
+
+    <property>
+        <name>dfs.ha.fencing.methods</name>
+        <value>sshfence(shell(/bin/true))</value>
+    </property>
+
+    <property>
+        <name>dfs.ha.fencing.ssh.private-key-files</name>
+        <value>/home/hadoop/.ssh/id_rsa</value>
+    </property>
+
+    <property>
+        <name>dfs.ha.fencing.ssh.connect-timeout</name>
+        <value>30000</value>
+    </property>
+
+    <property>
+        <name>dfs.ha.zkfc.port</name>
+        <value>8019</value>
+    </property>
+
+<property>
+    <name>ha.zookeeper.quorum</name>
+    <value>m1:2181,m2:2181,m3:2181</value>
+</property>
+
+</configuration>

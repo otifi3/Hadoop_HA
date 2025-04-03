@@ -1,0 +1,9 @@
+## Hadoop Cluster Setup with Docker Compose
+mkdir ~/hadoop_cluster
+cd ~/hadoop_cluster
+docker compose up -d --build
+
+# Scaling Horizontally 
+docker run -it --name s2 --hostname s2 --network hadoop_cluster_hnet \
+-v dn2:/usr/local/hadoop/hdfs/datanode Hadoop_Cluster-s1
+
