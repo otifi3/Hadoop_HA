@@ -64,7 +64,7 @@
 
     <property>
         <name>dfs.ha.fencing.methods</name>
-        <value>sshell(/bin/true)</value>
+        <value>shell(/bin/true)</value>
     </property>
 
     <property>
