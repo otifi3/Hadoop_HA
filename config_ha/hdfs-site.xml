@@ -59,7 +59,12 @@
 
     <property>
         <name>dfs.ha.fencing.methods</name>
-        <value>sshfence(shell(/bin/true))</value>
+        <value>sshfence</value>
+    </property>
+
+    <property>
+        <name>dfs.ha.fencing.methods</name>
+        <value>sshell(/bin/true)</value>
     </property>
 
     <property>
