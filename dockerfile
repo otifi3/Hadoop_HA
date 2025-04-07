@@ -4,13 +4,10 @@ FROM ubuntu:22.04
 ENV DEBIAN_FRONTEND=noninteractive
 
 # Install dependencies
-RUN apt update 
-RUN apt install -y sudo 
-RUN apt install -y openjdk-8-jdk 
-RUN apt install -y wget 
-RUN apt install -y tar
-RUN apt install -y ssh
-RUN apt clean
+RUN apt update && \
+    apt install -y sudo openjdk-8-jdk wget tar ssh && \
+    apt clean
+
 
 # Create hadoop user
 RUN useradd -m -s /bin/bash hadoop && echo "hadoop ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
