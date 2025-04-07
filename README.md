@@ -20,9 +20,11 @@ This project sets up a **Highly Available (HA) Hadoop Cluster** using Docker. It
 ## 🧩 Components
 
 - **ZooKeeper Nodes**: `zk1`, `zk2`, `zk3`
+- **JournalNodes**: `jn1`, `jn2`, `jn3`
 - **NameNodes**: `nn1`, `nn2`, `nn3` (all configured for automatic failover)
 - **ResourceManagers**: integrated within masters, HA enabled
 - **DataNode + NodeManager**: `dn1` (can be scaled horizontally)
+
 
 ## 🚀 Getting Started
 
@@ -35,18 +37,10 @@ git clone https://github.com/otifi3/Hadoop_HA.git
 cd Hadoop_HA
 ```
 
-### 2. Build the Docker Image
+### 2. Build the Cluster
 
 ```bash
-docker build -t hadoop-ha .
-```
-
-### 3. Start the Cluster
-
-Use Docker Compose to start the cluster:
-
-```bash
-docker-compose up -d
+docker-compose up --build
 ```
 
 This command initializes the Hadoop cluster with:
@@ -54,8 +48,9 @@ This command initializes the Hadoop cluster with:
 - 🗃️ 1 DataNode (`dn1`)
 - 🐘 YARN ResourceManagers integrated into masters
 - 🦓 3 ZooKeeper nodes (`zk1`, `zk2`, `zk3`) for automatic failover
+- 📓 3 JournalNodes (`jn1`, `jn2`, `jn3`) required for shared edits in HDFS HA
 
-### 4. Access the Web UIs
+### 3. Access the Web UIs
 
 - HDFS NameNode: [http://localhost:9870](http://localhost:9870)
 - YARN ResourceManager: [http://localhost:8088](http://localhost:8088)
