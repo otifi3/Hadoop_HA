@@ -35,8 +35,8 @@ Follow these steps to deploy the HA Hadoop Cluster:
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/otifi3/Hadoop_HA.git
-cd Hadoop_HA
+git clone https://github.com/otifi3/hadoop_cluster.git
+cd hadoop_cluster
 ```
 
 ### 2. Build the Cluster
