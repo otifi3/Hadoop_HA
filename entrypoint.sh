@@ -25,7 +25,7 @@ if [[ "$HOSTNAME" == *"m"* ]]; then
         yarn --daemon start resourcemanager
     fi
 elif [[ "$HOSTNAME" == *"s"* ]]; then
-    sleep 30
+    sleep 15
     hdfs --daemon start datanode && yarn --daemon start nodemanager
 fi
 
