@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Stop and remove docker-compose services
-docker-compose down -v
+docker compose down -v
 
 # Remove manually scaled s<number> containers
 docker rm -f $(docker ps -aq --filter "name=^s[0-9]+$") 2>/dev/null
