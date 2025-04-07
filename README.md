@@ -1,9 +1,3 @@
-# Hadoop High Availability Cluster with Docker Compose
-
-This project provides a Docker Compose setup for running a **Hadoop 3.3.6** cluster in **High Availability (HA)** mode using **ZooKeeper-based failover**. The configuration includes:
-
-
-
 # Highly Available Hadoop Cluster with Docker
 
 This project sets up a **Highly Available (HA) Hadoop Cluster** using Docker. It includes configurations and scripts to deploy Hadoop with multiple NameNodes and DataNodes, ensuring fault tolerance and scalability.
