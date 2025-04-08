@@ -12,7 +12,12 @@ services:
       - nn1:/usr/local/hadoop/hdfs/namenode
       - j1:/usr/local/hadoop/journal
       - zk1:/usr/local/zookeeper
-              
+    healthcheck:
+      test: ["CMD", "/home/hadoop/health_check.sh"]
+      interval: 7s
+      timeout: 3s
+      retries: 7
+    restart: always
 
   m2:
     build: .
@@ -27,7 +32,12 @@ services:
       - nn2:/usr/local/hadoop/hdfs/namenode
       - j2:/usr/local/hadoop/journal
       - zk2:/usr/local/zookeeper
-         
+    healthcheck:
+      test: ["CMD", "/home/hadoop/health_check.sh"]
+      interval: 7s
+      timeout: 3s
+      retries: 7
+    restart: always       
 
   m3:
     build: .
@@ -42,7 +52,13 @@ services:
       - nn3:/usr/local/hadoop/hdfs/namenode
       - j3:/usr/local/hadoop/journal
       - zk3:/usr/local/zookeeper
-        
+    healthcheck:
+      test: ["CMD", "/home/hadoop/health_check.sh"]
+      interval: 7s
+      timeout: 3s
+      retries: 7
+    restart: always
+
   s1:
     build: .
     container_name: s1
@@ -52,9 +68,13 @@ services:
     volumes:
       - dn1:/usr/local/hadoop/hdfs/datanode
     depends_on:
-      - m1
-      - m2
-      - m3
+      m1:
+        condition: service_healthy
+      m2:
+        condition: service_healthy
+      m3:
+        condition: service_healthy
+    restart: always
         
 networks:
   hnet:
