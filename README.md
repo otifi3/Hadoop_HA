@@ -11,7 +11,8 @@ This project sets up a **Highly Available (HA) Hadoop Cluster** using Docker. It
 - **ha_setup.sh**: Automates the setup of the HA Hadoop cluster.
 - **Setup_HadoopCluster.txt**: Provides step-by-step instructions for manual cluster setup.
 - **scale_datanodes.sh**: Script to dynamically scale new DataNode containers with unique volumes and hostnames.
-- **cleanup.sh**: Script to remove cluster. 
+- **cleanup.sh**: Script to remove cluster.
+- **health_check.sh**: Script to check the health of the masters.
 
 ## 🧩 Components
 
