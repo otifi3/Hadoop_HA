@@ -37,6 +37,8 @@ services:
       interval: 7s
       timeout: 3s
       retries: 7
+    depends_on:
+      - m1
     restart: always       
 
   m3:
@@ -57,6 +59,8 @@ services:
       interval: 7s
       timeout: 3s
       retries: 7
+    depends_on:
+      - m1
     restart: always
 
   s1:

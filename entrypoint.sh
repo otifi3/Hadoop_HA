@@ -16,7 +16,7 @@ if [[ "$HOSTNAME" == *"m"* ]]; then
 
     else
         if [[ ! -d "/usr/local/hadoop/hdfs/namenode/current" ]]; then
-            sleep 10
+            sleep 5
             hdfs namenode -bootstrapStandby
         fi
         hdfs --daemon start namenode && hdfs --daemon start zkfc
